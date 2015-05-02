@@ -49,6 +49,7 @@ public class DaWik {
 		DaWikItems.init();
 		DaWikTileEntitys.init();
 		NetworkHandler.init();
+		System.out.println("Ready Loaded");
 	}
 
 	@EventHandler
