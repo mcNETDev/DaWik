@@ -25,6 +25,7 @@ public class ConfigManager {
 	}
 
 	public void load() {
+		System.out.println("Config Loading..");
 		ConfigManager.dimList = config.get("worlds", "Dimensions", new String[] { "MiningWorld;124;MINING", "Admin;123;NORMAL" }).getStringList();
 		ConfigManager.players = config.get("Permissions", "ExtraPermissions", new String[] { "mcNET", "you", "youFriend" }, "This Players are alowed for use /tpDim").getStringList();
 
@@ -37,6 +38,8 @@ public class ConfigManager {
 		if (config.hasChanged()) {
 			config.save();
 		}
+		System.out.println("Config Loaded!");
+
 	}
 
 }
