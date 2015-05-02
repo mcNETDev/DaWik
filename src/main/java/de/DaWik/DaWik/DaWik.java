@@ -48,7 +48,7 @@ public class DaWik {
 			return pickaxeTest;
 		}
 	};
-
+	// TODO Config Manager
 	public static String[] DIMLIST;
 
 	public static int miningWorldBiomeID;
