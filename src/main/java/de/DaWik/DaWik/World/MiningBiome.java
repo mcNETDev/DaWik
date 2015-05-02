@@ -2,46 +2,44 @@ package de.DaWik.DaWik.World;
 
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import de.DaWik.DaWik.Config.ConfigManager;
 
 public class MiningBiome extends BiomeGenBase {
 
 	public static MiningBiome instance;
 
-	public MiningBiome(int p_i1971_1_) {
-		super(p_i1971_1_);
+	public MiningBiome() {
+		super(ConfigManager.miningWorldBiomeID);
 		setColor(2900485);
 		setBiomeName("Mining World Biome");
 		setDisableRain();
-		this.spawnableMonsterList.clear();
-		this.spawnableCreatureList.clear();
-		this.spawnableWaterCreatureList.clear();
-		this.spawnableCaveCreatureList.clear();
+		spawnableMonsterList.clear();
+		spawnableCreatureList.clear();
+		spawnableWaterCreatureList.clear();
+		spawnableCaveCreatureList.clear();
 		setTemperatureRainfall(0.8F, 0.0F);
 		setHeight(new BiomeGenBase.Height(0.0F, 0.0F));
-		this.topBlock = Blocks.grass;
-		this.fillerBlock = Blocks.dirt;
-		this.theBiomeDecorator.waterlilyPerChunk = -999;
-		this.theBiomeDecorator.treesPerChunk = -999;
-		this.theBiomeDecorator.flowersPerChunk = -999;
-		this.theBiomeDecorator.grassPerChunk = -999;
-		this.theBiomeDecorator.deadBushPerChunk = -999;
-		this.theBiomeDecorator.mushroomsPerChunk = -999;
-		this.theBiomeDecorator.cactiPerChunk = -999;
-		this.theBiomeDecorator.sandPerChunk = -999;
-		this.theBiomeDecorator.sandPerChunk2 = -999;
-		this.theBiomeDecorator.clayPerChunk = -999;
-		this.theBiomeDecorator.reedsPerChunk = -999;
-		this.theBiomeDecorator.bigMushroomsPerChunk = -999;
-		this.theBiomeDecorator.generateLakes = false;
+		topBlock = Blocks.grass;
+		fillerBlock = Blocks.dirt;
+		theBiomeDecorator.waterlilyPerChunk = -999;
+		theBiomeDecorator.treesPerChunk = -999;
+		theBiomeDecorator.flowersPerChunk = -999;
+		theBiomeDecorator.grassPerChunk = -999;
+		theBiomeDecorator.deadBushPerChunk = -999;
+		theBiomeDecorator.mushroomsPerChunk = -999;
+		theBiomeDecorator.cactiPerChunk = -999;
+		theBiomeDecorator.sandPerChunk = -999;
+		theBiomeDecorator.sandPerChunk2 = -999;
+		theBiomeDecorator.clayPerChunk = -999;
+		theBiomeDecorator.reedsPerChunk = -999;
+		theBiomeDecorator.bigMushroomsPerChunk = -999;
+		theBiomeDecorator.generateLakes = false;
 	}
 
 	@Override

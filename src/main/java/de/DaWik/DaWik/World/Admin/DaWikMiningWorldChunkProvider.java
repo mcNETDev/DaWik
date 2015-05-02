@@ -1,17 +1,10 @@
 package de.DaWik.DaWik.World.Admin;
 
-import java.util.List;
-
-import de.DaWik.DaWik.DaWik;
 import net.minecraft.block.Block;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.IProgressUpdate;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.ChunkProviderGenerate;
+import de.DaWik.DaWik.Config.ConfigManager;
 
 public class DaWikMiningWorldChunkProvider extends ChunkProviderGenerate {
 
@@ -25,8 +18,8 @@ public class DaWikMiningWorldChunkProvider extends ChunkProviderGenerate {
 		for (int x = 0; x < 16; x++) {
 			for (int z = 0; z < 16; z++) {
 				for (int y = 0; (y <= 255) && (y >= 0); y++) {
-					int code = (x * 16 + z) * 256 + y;
-					if (y < DaWik.miningWorldHigh) {
+					int code = (((x * 16) + z) * 256) + y;
+					if (y < ConfigManager.miningWorldHeight) {
 						blocks[code] = Blocks.stone;
 					} else {
 						blocks[code] = Blocks.air;
@@ -36,5 +29,4 @@ public class DaWikMiningWorldChunkProvider extends ChunkProviderGenerate {
 		}
 
 	}
-
 }

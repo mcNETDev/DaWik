@@ -1,24 +1,14 @@
 package de.DaWik.DaWik;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import de.DaWik.DaWik.World.DaWikTeleporter;
-import tv.twitch.chat.ChatMessage;
-import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.event.ClickEvent;
-import net.minecraft.event.HoverEvent;
-import net.minecraft.event.HoverEvent.Action;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IChatComponent;
-import net.minecraftforge.transformers.ForgeAccessTransformer;
+import de.DaWik.DaWik.World.DaWikTeleporter;
+import de.DaWik.DaWik.util.Player;
 
 public class DaWikTPCommand implements ICommand {
 
@@ -44,14 +34,16 @@ public class DaWikTPCommand implements ICommand {
 
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
-		if (DaWik.isExtraPlayer(sender.getCommandSenderName())) {
-			if (args.length == 1 && sender instanceof EntityPlayerMP) {
+		if (Player.isExtraPlayer(sender.getCommandSenderName())) {
+			if ((args.length == 1) && (sender instanceof EntityPlayerMP)) {
 				EntityPlayerMP player = (EntityPlayerMP) sender;
 				if (player.dimension != Integer.valueOf(args[0])) {
-					player.mcServer.getConfigurationManager().transferPlayerToDimension(player, Integer.valueOf(args[0]), new DaWikTeleporter(player.mcServer.worldServerForDimension(Integer.valueOf(args[0])), Integer.valueOf(args[0])));
+					player.mcServer.getConfigurationManager().transferPlayerToDimension(player, Integer.valueOf(args[0]),
+							new DaWikTeleporter(player.mcServer.worldServerForDimension(Integer.valueOf(args[0])), Integer.valueOf(args[0])));
 				}
-			} else
+			} else {
 				sender.addChatMessage(new ChatComponentText("You are not a player or invalid Usage || Usage: /tpDim <DimID>"));
+			}
 
 		} else {
 			sender.addChatMessage(new ChatComponentText("Du darfst das nicht"));
