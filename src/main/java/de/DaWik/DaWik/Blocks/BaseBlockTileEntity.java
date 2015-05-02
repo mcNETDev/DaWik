@@ -3,13 +3,13 @@ package de.DaWik.DaWik.Blocks;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 
-public abstract class BaseTileEntity extends BlockContainer {
+public abstract class BaseBlockTileEntity extends BlockContainer {
 
-	public BaseTileEntity(Material mat) {
+	public BaseBlockTileEntity(Material mat) {
 		super(mat);
 	}
 
-	public BaseTileEntity() {
+	public BaseBlockTileEntity() {
 		super(Material.rock);
 	}
 }

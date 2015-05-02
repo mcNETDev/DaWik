@@ -16,6 +16,7 @@ import de.DaWik.DaWik.Config.ConfigManager;
 import de.DaWik.DaWik.init.DaWikBlocks;
 import de.DaWik.DaWik.init.DaWikItems;
 import de.DaWik.DaWik.init.DaWikTileEntitys;
+import de.DaWik.DaWik.network.DescriptionHandler;
 import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 
@@ -49,6 +50,7 @@ public class DaWik {
 		DaWikItems.init();
 		DaWikTileEntitys.init();
 		NetworkHandler.init();
+		DescriptionHandler.init();
 		System.out.println("Ready Loaded");
 	}
 
