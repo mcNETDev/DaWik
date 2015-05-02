@@ -8,25 +8,15 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import de.DaWik.DaWik.Items.DaWikItems;
-import de.DaWik.DaWik.Items.ItemPickaxeTest;
 import de.DaWik.DaWik.World.LakeEvent;
 import de.DaWik.DaWik.World.MiningBiome;
 import de.DaWik.DaWik.fuel.FuelManager;
+import de.DaWik.DaWik.init.DaWikItems;
 
-public class StartRegister {
+public class DaWikRegistry {
 
-	public static void registerPreInit(FMLPreInitializationEvent event) {
-
-		// TOOLS
-		DaWikItems.pickaxeTest = new ItemPickaxeTest(null);
-		GameRegistry.registerItem(DaWikItems.pickaxeTest, "pickaxeTest");
-
-	}
-
-	public static void registerLoad(FMLInitializationEvent event) {
+	public static void load(FMLInitializationEvent event) {
 		GameRegistry.addShapedRecipe(new ItemStack(DaWikItems.pickaxeTest), "sw ", "wsw", " ws", Character.valueOf('s'), Items.stick, Character.valueOf('w'), Blocks.planks);
 
 		// Hander
@@ -40,7 +30,7 @@ public class StartRegister {
 
 	}
 
-	public static void registerPostInit(FMLPostInitializationEvent event) {
+	public static void postInit(FMLPostInitializationEvent event) {
 
 	}
 }

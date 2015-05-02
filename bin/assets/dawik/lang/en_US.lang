@@ -1,4 +1,5 @@
 key.categories.dawik=DaWik Mod
 key.dawik.explode=Blow up you self
-item.itemPickaxeTest.name=Breaker
+item.Breaker.name=Breaker
 itemGroup.testTab=DaWik Mod
+tile.blockCamoMine.name=Camo Mine

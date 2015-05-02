@@ -13,7 +13,7 @@ import de.DaWik.DaWik.World.Admin.DaWikVoidWorldProvider;
 public class DaWikDimensionManager {
 	public static ArrayList<Dimension> dims = new ArrayList<Dimension>();
 
-	public void init() {
+	public static void init() {
 		for (String dim : ConfigManager.dimList) {
 			String[] prop = dim.split(";");
 			String name = prop[0];

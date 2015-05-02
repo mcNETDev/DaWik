@@ -2,7 +2,7 @@ package de.DaWik.DaWik.fuel;
 
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.IFuelHandler;
-import de.DaWik.DaWik.Items.DaWikItems;
+import de.DaWik.DaWik.init.DaWikItems;
 
 public class FuelManager implements IFuelHandler {
 

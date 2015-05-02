@@ -13,7 +13,9 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.DaWik.DaWik.Config.ConfigManager;
-import de.DaWik.DaWik.Items.DaWikItems;
+import de.DaWik.DaWik.init.DaWikBlocks;
+import de.DaWik.DaWik.init.DaWikItems;
+import de.DaWik.DaWik.init.DaWikTileEntitys;
 import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 
@@ -43,22 +45,24 @@ public class DaWik {
 		DaWik.proxy.preInit();
 		config = new ConfigManager(event.getSuggestedConfigurationFile());
 		config.load();
-		StartRegister.registerPreInit(event);
+		DaWikBlocks.init();
+		DaWikItems.init();
+		DaWikTileEntitys.init();
 		NetworkHandler.init();
 	}
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 		DaWik.proxy.init();
-		StartRegister.registerLoad(event);
-		new DaWikDimensionManager().init();
+		DaWikRegistry.load(event);
+		DaWikDimensionManager.init();
 
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		DaWik.proxy.postInit();
-		StartRegister.registerPostInit(event);
+		DaWikRegistry.postInit(event);
 	}
 
 	@EventHandler
