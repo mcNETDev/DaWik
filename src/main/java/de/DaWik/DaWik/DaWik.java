@@ -14,6 +14,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.DaWik.DaWik.Config.ConfigManager;
 import de.DaWik.DaWik.Items.DaWikItems;
+import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 
 @Mod(modid = "DaWik", name = "DaWik", version = "0.0.1")
@@ -43,6 +44,7 @@ public class DaWik {
 		config = new ConfigManager(event.getSuggestedConfigurationFile());
 		config.load();
 		StartRegister.registerPreInit(event);
+		NetworkHandler.init();
 	}
 
 	@EventHandler

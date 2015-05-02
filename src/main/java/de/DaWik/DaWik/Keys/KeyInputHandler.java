@@ -2,6 +2,9 @@ package de.DaWik.DaWik.Keys;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
+import de.DaWik.DaWik.Config.ConfigManager;
+import de.DaWik.DaWik.network.MessageExplode;
+import de.DaWik.DaWik.network.NetworkHandler;
 
 public class KeyInputHandler {
 	private Keybinding getPressedKey() {
@@ -19,9 +22,10 @@ public class KeyInputHandler {
 		if (key != null) {
 			switch (key) {
 			case EXPLODE:
-				System.out.println("Booooom");
+				if (ConfigManager.keyExplode) {
+					NetworkHandler.sendToServer(new MessageExplode(3));
+				}
 				break;
-
 			default:
 				break;
 			}
