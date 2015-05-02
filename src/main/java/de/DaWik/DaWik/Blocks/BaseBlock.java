@@ -1,26 +1,22 @@
 package de.DaWik.DaWik.Blocks;
 
-import de.DaWik.DaWik.DaWik;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSponge;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.world.SpawnerAnimals;
+import de.DaWik.DaWik.DaWik;
 
-public class BaseBlock extends Block{
+public class BaseBlock extends Block {
+	public static String unlocalNAME;
+	public static String name;
 
-	public BaseBlock(Material material) {
-		super(material);
+	public BaseBlock(String unlocalNAME, String name) {
+		super(Material.rock);
+		unlocalNAME = BaseBlock.unlocalNAME;
+		name = BaseBlock.name;
 		setCreativeTab(DaWik.creativeTab);
-		setBlockTextureName("DaWik:BlockTest");
-		setBlockName("blockTest");
+		setBlockTextureName("DaWik:" + unlocalNAME);
+		setBlockName(unlocalNAME);
 		setHardness(10);
 		setHarvestLevel("pickaxe", 1);
 	}
 
-	
-	
-	
-	
-	
 }
