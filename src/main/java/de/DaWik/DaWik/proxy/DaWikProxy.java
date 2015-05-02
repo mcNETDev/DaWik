@@ -1,15 +1,13 @@
 package de.DaWik.DaWik.proxy;
 
-import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
 
-public class DaWikProxy {
+public abstract class DaWikProxy {
+	public abstract void preInit();
 
-	public void registerRenderers() {
+	public abstract void init();
 
-	}
+	public abstract void postInit();
 
-	public void registerKeyBindings() {
-	}
+	public abstract EntityPlayer getClientPlayer();
 }

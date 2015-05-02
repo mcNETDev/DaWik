@@ -22,7 +22,7 @@ public class DaWik {
 	@Instance(value = "DaWik")
 	public static DaWik instance;
 
-	@SidedProxy(clientSide = "de.DaWik.DaWik.proxy.DaWikClientProxy", serverSide = "de.DaWik.DaWik.proxy.DaWikProxy")
+	@SidedProxy(clientSide = "de.DaWik.DaWik.proxy.DaWikClientProxy", serverSide = "de.DaWik.DaWik.proxy.DaWikServerProxy")
 	public static DaWikProxy proxy;
 
 	// ConfigManager
@@ -39,6 +39,7 @@ public class DaWik {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		DaWik.proxy.preInit();
 		config = new ConfigManager(event.getSuggestedConfigurationFile());
 		config.load();
 		StartRegister.registerPreInit(event);
@@ -46,7 +47,7 @@ public class DaWik {
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-		DaWik.proxy.registerRenderers();
+		DaWik.proxy.init();
 		StartRegister.registerLoad(event);
 		new DaWikDimensionManager().init();
 
@@ -54,6 +55,7 @@ public class DaWik {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+		DaWik.proxy.postInit();
 		StartRegister.registerPostInit(event);
 	}
 
