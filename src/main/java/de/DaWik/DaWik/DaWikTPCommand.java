@@ -10,6 +10,9 @@ import net.minecraft.util.ChatComponentText;
 import de.DaWik.DaWik.World.DaWikTeleporter;
 import de.DaWik.DaWik.util.Player;
 
+/**
+ * This Command is very very buggy
+ */
 public class DaWikTPCommand implements ICommand {
 
 	@Override
