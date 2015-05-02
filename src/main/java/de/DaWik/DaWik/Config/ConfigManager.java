@@ -13,9 +13,9 @@ public class ConfigManager {
 	public static int miningWorldBiomeID;
 	public static int miningWorldHeight;
 
-	public static boolean miningWorldDisableLakes = true;
-	public static boolean devMode = false;
-	public static boolean keyExplode = false;
+	public static boolean miningWorldDisableLakes;
+	public static boolean devMode;
+	public static boolean keyExplode;
 
 	private Configuration config;
 
