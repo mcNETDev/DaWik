@@ -1,0 +1,19 @@
+package de.DaWik.DaWik.World.Admin;
+
+import de.DaWik.DaWik.DaWikDimensionManager;
+import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldProviderHell;
+import net.minecraft.world.WorldProviderSurface;
+
+public class DaWikVoidWorldProvider extends WorldProvider {
+
+	@Override
+	public String getDimensionName() {
+		return DaWikDimensionManager.getName(dimensionId);
+	}
+
+	
+	//TODO VOID
+	
+	
+}

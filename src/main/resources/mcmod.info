@@ -1,0 +1,16 @@
+[
+{
+  "modid": "DaWik",
+  "name": "DaWik",
+  "description": "Mein mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ME"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
