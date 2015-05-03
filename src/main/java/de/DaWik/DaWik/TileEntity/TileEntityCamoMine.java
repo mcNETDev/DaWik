@@ -32,14 +32,12 @@ public class TileEntityCamoMine extends BaseTileEntity {
 	@Override
 	public void readFromPacket(ByteBuf buf) {
 		camoStack = ByteBufUtils.readItemStack(buf);
-		System.out.println("read from packet");
 		worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
 	}
 
 	@Override
 	public void writeToPacket(ByteBuf buf) {
 		ByteBufUtils.writeItemStack(buf, camoStack);
-		System.out.println("write to packet");
 	}
 
 	@Override
@@ -48,7 +46,6 @@ public class TileEntityCamoMine extends BaseTileEntity {
 		NBTTagCompound camo = new NBTTagCompound();
 		camoStack.writeToNBT(camo);
 		nbt.setTag("camoStack", camo);
-		System.out.println("writeToCamo");
 	}
 
 	@Override
@@ -56,7 +53,6 @@ public class TileEntityCamoMine extends BaseTileEntity {
 		super.readFromNBT(nbt);
 		if (nbt.hasKey("camoStack")) {
 			camoStack = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("camoStack"));
-			System.out.println("found CamoStack and loaded");
 		} else {
 			camoStack = null;
 		}

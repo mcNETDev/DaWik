@@ -16,6 +16,12 @@ public class ConfigManager {
 	public static boolean miningWorldDisableLakes;
 	public static boolean devMode;
 	public static boolean keyExplode;
+	public static boolean enableStorageBlockCrafting;
+	public static boolean enableStorageBlock;
+	public static boolean enableCamoMine;
+	public static boolean enableCamoMineCrafting;
+	public static boolean enableVillageInMiningWorld;
+	public static boolean enableStrongholdInMiningWorld;
 
 	private Configuration config;
 
@@ -32,16 +38,22 @@ public class ConfigManager {
 
 		ConfigManager.miningWorldBiomeID = config.get("world", "miningWorldBiomeID", 75, "The id from the Mining World Biome").getInt();
 		ConfigManager.miningWorldHeight = config.get("world", "miningWorldHeight", 80).getInt();
+		ConfigManager.enableVillageInMiningWorld = config.get("world", "enableVillageInMiningWorld", true).getBoolean();
+		ConfigManager.enableStrongholdInMiningWorld = config.get("world", "enableStrongholdInMiningWorld", true).getBoolean();
 
 		ConfigManager.miningWorldDisableLakes = config.get("world", "miningWorldDisableLakes", true).getBoolean();
 		ConfigManager.keyExplode = config.get("keys", "EnableExplodeKey", false).getBoolean();
 
+		ConfigManager.enableCamoMine = config.get("blocks", "camoMineEnable", true).getBoolean();
+		ConfigManager.enableStorageBlock = config.get("blocks", "storageBlockEnable", true).getBoolean();
+
+		ConfigManager.enableStorageBlockCrafting = config.get("crafting", "storageBlockEnableCrafting", true).getBoolean();
+		ConfigManager.enableCamoMineCrafting = config.get("crafting", "camoMineEnableCrafting", true).getBoolean();
+
 		ConfigManager.devMode = config.get("DevStuff", "DEVMODE", false, "Activate the dev mode").getBoolean();
 
 		config.save();
-
 		System.out.println("Config Loaded!");
 
 	}
-
 }

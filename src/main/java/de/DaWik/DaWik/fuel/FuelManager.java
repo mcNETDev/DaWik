@@ -8,7 +8,7 @@ public class FuelManager implements IFuelHandler {
 
 	@Override
 	public int getBurnTime(ItemStack fuel) {
-		if (fuel.getItem().getUnlocalizedName().equals(DaWikItems.pickaxeTest.getUnlocalizedName())) {
+		if (fuel.getItem().getUnlocalizedName().equals(DaWikItems.pickaxeBreaker.getUnlocalizedName())) {
 			return 2000;
 		}
 

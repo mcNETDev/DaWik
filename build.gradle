@@ -17,12 +17,19 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+ext.configFile = file "build.properties"
+configFile.withReader {
+    def prop = new Properties()
+    prop.load(it)
+    project.ext.config = new ConfigSlurper().parse prop
+}
+
+version = config.mc_version + "-" + config.mod_version + "-" + config.build_number
+group= config.package_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = config.mod_name
 
 minecraft {
-    version = "1.7.10-10.13.3.1395-1710ls"
+    version = config.mc_version + "-" + config.forge_version
     runDir = "eclipse"
 }
 
@@ -60,4 +67,51 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
+}
+jar {
+    dependsOn "incrementBuildNumber"
+	classifier = ''
+	 manifest.mainAttributes(
+            "Built-By": System.getProperty('user.name'),
+            "Created-By": "${System.getProperty('java.vm.version')} + (${System.getProperty('java.vm.vendor')})",
+            "Implementation-Title": project.name,
+            "Implementation-Version": project.version
+    )
+}
+// add a source jar
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+// add a javadoc jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from javadoc.destinationDir
+    classifier = 'javadoc'
+}
+
+// because the normal output has been made to be obfuscated
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+tasks.build.dependsOn sourceJar, javadocJar, deobfJar
+
+tasks.withType(JavaCompile) { task ->
+    task.options.encoding = 'UTF-8'
+}
+
+
+task("incrementBuildNumber") {
+	// increment build number
+	doFirst {
+		// increment
+		config.build_number = (config.build_number.toString().toInteger()) + 1
+
+		// write back to the file
+		configFile.withWriter {
+			config.toProperties().store(it, "")
+		}
+	}
 }

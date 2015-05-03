@@ -37,7 +37,7 @@ public class DaWik {
 		@Override
 		@SideOnly(Side.CLIENT)
 		public Item getTabIconItem() {
-			return DaWikItems.pickaxeTest;
+			return DaWikItems.pickaxeBreaker;
 		}
 	};
 
