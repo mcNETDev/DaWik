@@ -11,7 +11,6 @@ public class BaseTileEntity extends TileEntity {
 
 	@Override
 	public Packet getDescriptionPacket() {
-		System.out.println("getPacket");
 		ByteBuf buf = Unpooled.buffer();
 		buf.writeInt(xCoord);
 		buf.writeInt(yCoord);

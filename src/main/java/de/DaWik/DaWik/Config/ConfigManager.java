@@ -3,6 +3,7 @@ package de.DaWik.DaWik.Config;
 import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
+import de.DaWik.DaWik.util.Log;
 
 public class ConfigManager {
 
@@ -53,7 +54,7 @@ public class ConfigManager {
 		ConfigManager.devMode = config.get("DevStuff", "DEVMODE", false, "Activate the dev mode").getBoolean();
 
 		config.save();
-		System.out.println("Config Loaded!");
+		Log.info("Config Loaded");
 
 	}
 }

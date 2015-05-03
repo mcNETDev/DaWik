@@ -19,6 +19,7 @@ import de.DaWik.DaWik.init.DaWikTileEntitys;
 import de.DaWik.DaWik.network.DescriptionHandler;
 import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
+import de.DaWik.DaWik.util.Log;
 
 @Mod(modid = "DaWik", name = "DaWik", version = "0.0.1")
 public class DaWik {
@@ -51,7 +52,7 @@ public class DaWik {
 		DaWikTileEntitys.init();
 		NetworkHandler.init();
 		DescriptionHandler.init();
-		System.out.println("Ready Loaded");
+		Log.info("Pre Init Complete");
 	}
 
 	@EventHandler
@@ -59,13 +60,14 @@ public class DaWik {
 		DaWik.proxy.init();
 		DaWikRegistry.load(event);
 		DaWikDimensionManager.init();
-
+		Log.info("Pre init Complete");
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		DaWik.proxy.postInit();
 		DaWikRegistry.postInit(event);
+		Log.info("Post Init Complete");
 	}
 
 	@EventHandler

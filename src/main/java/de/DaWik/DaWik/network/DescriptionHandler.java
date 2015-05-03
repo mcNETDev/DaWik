@@ -16,16 +16,13 @@ public class DescriptionHandler extends SimpleChannelInboundHandler<FMLProxyPack
 
 	static {
 		NetworkRegistry.INSTANCE.newChannel(DescriptionHandler.CHANNEL, new DescriptionHandler());
-		System.out.println("registered Channel");
 	}
 
 	public static void init() {
-		System.out.println("init DescriptionHandler");
 	}
 
 	@Override
 	protected void channelRead0(ChannelHandlerContext ctx, FMLProxyPacket msg) throws Exception {
-		System.out.println("channelRead0");
 		ByteBuf buf = msg.payload();
 		int x = buf.readInt();
 		int y = buf.readInt();
