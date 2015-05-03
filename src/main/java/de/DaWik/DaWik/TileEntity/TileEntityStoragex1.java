@@ -21,7 +21,6 @@ public class TileEntityStoragex1 extends BaseTileEntity implements IInventory {
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
-		System.out.println("writeNBT");
 		super.writeToNBT(nbt);
 		nbt.setInteger("slots", inventory.length);
 		NBTTagList camoStackTag = new NBTTagList();
@@ -48,8 +47,6 @@ public class TileEntityStoragex1 extends BaseTileEntity implements IInventory {
 			int index = t.getInteger("index");
 			if ((index >= 0) && (index < inventory.length)) {
 				inventory[index] = ItemStack.loadItemStackFromNBT(t);
-			} else {
-				System.out.println("ERROR");
 			}
 		}
 	}

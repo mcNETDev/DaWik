@@ -24,8 +24,9 @@ public class BlockCamoMine extends BaseBlockTileEntity {
 	@Override
 	public TileEntity createNewTileEntity(World world, int metadata) {
 		return new TileEntityCamoMine();
-	}
+	}http://puu.sh/hA0QQ/0a625fd7b8.jpg
 
+		http://puu.sh/hA0T8/d27bbf1f04.jpg
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote) {
@@ -37,7 +38,6 @@ public class BlockCamoMine extends BaseBlockTileEntity {
 
 	@Override
 	public IIcon getIcon(IBlockAccess world, int x, int y, int z, int side) {
-		System.out.println("setIcon");
 		TileEntityCamoMine te = (TileEntityCamoMine) world.getTileEntity(x, y, z);
 		ItemStack stack = te.getCamoflage();
 		if ((stack != null) && (stack.getItem() instanceof ItemBlock)) {
