@@ -1,4 +1,4 @@
-package de.DaWik.DaWik.World.Admin;
+package de.DaWik.DaWik.World;
 
 import java.util.Arrays;
 import java.util.List;

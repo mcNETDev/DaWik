@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import net.minecraftforge.common.DimensionManager;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import de.DaWik.DaWik.Config.ConfigManager;
+import de.DaWik.DaWik.World.DaWikMiningWorldProvider;
+import de.DaWik.DaWik.World.DaWikNormalWorldProvider;
 import de.DaWik.DaWik.World.Dimension;
-import de.DaWik.DaWik.World.Admin.DaWikMiningWorldProvider;
-import de.DaWik.DaWik.World.Admin.DaWikNormalWorldProvider;
-import de.DaWik.DaWik.World.Admin.DaWikVoidWorldProvider;
 
 public class DaWikDimensionManager {
 	public static ArrayList<Dimension> dims = new ArrayList<Dimension>();
@@ -27,10 +26,6 @@ public class DaWikDimensionManager {
 				break;
 			case NORMAL:
 				DimensionManager.registerProviderType(dimid, DaWikNormalWorldProvider.class, true);
-				break;
-			case VOID:
-				DimensionManager.registerProviderType(dimid, DaWikVoidWorldProvider.class, true);
-				FMLInterModComms.sendMessage("BuildCraft|Energy", "oil-gen-exclude", dimid + "");
 				break;
 			default:
 				break;

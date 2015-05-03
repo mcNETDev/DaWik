@@ -1,9 +1,8 @@
-package de.DaWik.DaWik.World.Admin;
+package de.DaWik.DaWik.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.DaWik.DaWik.DaWikDimensionManager;
-import de.DaWik.DaWik.World.MiningBiome;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;

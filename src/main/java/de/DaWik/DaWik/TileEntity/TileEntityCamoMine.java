@@ -20,8 +20,7 @@ public class TileEntityCamoMine extends BaseTileEntity {
 	public void updateEntity() {
 		timer--;
 		if ((timer == 0) && !worldObj.isRemote) {
-			List<Entity> entitys = worldObj.getEntitiesWithinAABB(EntityPlayer.class,
-					AxisAlignedBB.getBoundingBox(xCoord + 0.5D, yCoord + 0.5D, zCoord + 0.5D, xCoord + 0.5D, yCoord + 3, zCoord + 0.5D));
+			List<Entity> entitys = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord, yCoord, zCoord, xCoord + 1.0D, yCoord + 3, zCoord + 1.0D));
 			if (entitys.size() > 0) {
 				worldObj.createExplosion(null, xCoord, yCoord, zCoord, 3.0F, false);
 			}

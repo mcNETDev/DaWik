@@ -1,4 +1,4 @@
-package de.DaWik.DaWik.World.Admin;
+package de.DaWik.DaWik.World;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

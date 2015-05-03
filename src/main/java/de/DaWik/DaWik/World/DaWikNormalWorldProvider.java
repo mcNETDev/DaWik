@@ -1,4 +1,4 @@
-package de.DaWik.DaWik.World.Admin;
+package de.DaWik.DaWik.World;
 
 import de.DaWik.DaWik.DaWikDimensionManager;
 import net.minecraft.world.WorldProvider;
