@@ -41,9 +41,10 @@ public class DaWikBlocks {
 			DaWikBlocks.blockStoragex1000000 = new BlockStoragex(1000000);
 			GameRegistry.registerBlock(DaWikBlocks.blockStoragex1000000, DaWikBlocks.blockStoragex1000000.UNLOCALNAME);
 		}
-		DaWikBlocks.woodCrop = new WoodCrop();
-		GameRegistry.registerBlock(DaWikBlocks.woodCrop, WoodCrop.UNLOCALNAME);
-
+		if (ConfigManager.enableWoodPlants) {
+			DaWikBlocks.woodCrop = new WoodCrop();
+			GameRegistry.registerBlock(DaWikBlocks.woodCrop, WoodCrop.UNLOCALNAME);
+		}
 		DaWikBlocks.advWood = new BlockAdvancedWood();
 		GameRegistry.registerBlock(DaWikBlocks.advWood, BlockAdvancedWood.UNLOCALNAME);
 	}

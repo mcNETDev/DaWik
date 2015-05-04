@@ -23,7 +23,8 @@ public class ConfigManager {
 	public static boolean enableCamoMineCrafting;
 	public static boolean enableVillageInMiningWorld;
 	public static boolean enableStrongholdInMiningWorld;
-
+	public static boolean allowBoneMealonWoodPlants;
+	public static boolean enableWoodPlants;
 	private Configuration config;
 
 	public ConfigManager(File f) {
@@ -51,9 +52,13 @@ public class ConfigManager {
 		ConfigManager.enableStorageBlockCrafting = config.get("crafting", "storageBlockEnableCrafting", true).getBoolean();
 		ConfigManager.enableCamoMineCrafting = config.get("crafting", "camoMineEnableCrafting", true).getBoolean();
 
-		ConfigManager.devMode = config.get("DevStuff", "DEVMODE", false, "Activate the dev mode").getBoolean();
+		ConfigManager.enableWoodPlants = config.get("world", "enableWoodPlants", true).getBoolean();
+		ConfigManager.allowBoneMealonWoodPlants = config.get("world", "allowBoneMealonWoodPlants", true).getBoolean();
 
-		config.save();
+		ConfigManager.devMode = config.get("DevStuff", "DEVMODE", false, "Activate the dev mode").getBoolean();
+		if (config.hasChanged()) {
+			config.save();
+		}
 		Log.info("Config Loaded");
 
 	}

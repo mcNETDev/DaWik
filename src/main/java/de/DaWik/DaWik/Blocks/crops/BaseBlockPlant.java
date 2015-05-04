@@ -12,6 +12,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.DaWik.DaWik.DaWik;
+import de.DaWik.DaWik.Config.ConfigManager;
 
 public class BaseBlockPlant extends BlockBush implements IGrowable {
 	protected int maxGrowthStage = 7;
@@ -69,7 +70,10 @@ public class BaseBlockPlant extends BlockBush implements IGrowable {
 
 	@Override
 	public boolean func_149851_a(World parWorld, int parX, int parY, int parZ, boolean p_149851_5_) {
-		return parWorld.getBlockMetadata(parX, parY, parZ) != 7;
+		if (ConfigManager.allowBoneMealonWoodPlants) {
+			return parWorld.getBlockMetadata(parX, parY, parZ) != 7;
+		}
+		return false;
 	}
 
 	@Override

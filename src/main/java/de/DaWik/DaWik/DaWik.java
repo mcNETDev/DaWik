@@ -16,12 +16,13 @@ import de.DaWik.DaWik.Config.ConfigManager;
 import de.DaWik.DaWik.init.DaWikBlocks;
 import de.DaWik.DaWik.init.DaWikItems;
 import de.DaWik.DaWik.init.DaWikTileEntitys;
+import de.DaWik.DaWik.mod.ModCompact;
 import de.DaWik.DaWik.network.DescriptionHandler;
 import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 import de.DaWik.DaWik.util.Log;
 
-@Mod(modid = "DaWik", name = "DaWik", version = "0.0.1")
+@Mod(modid = "DaWik", name = "DaWik", version = "0.0.1", dependencies = "")
 public class DaWik {
 
 	@Instance(value = "DaWik")
@@ -52,6 +53,8 @@ public class DaWik {
 		DaWikTileEntitys.init();
 		NetworkHandler.init();
 		DescriptionHandler.init();
+		ModCompact.init();
+
 		Log.info("Pre Init Complete");
 	}
 
