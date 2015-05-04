@@ -32,6 +32,11 @@ public class DaWikRegistry {
 		if (ConfigManager.enableCamoMine && ConfigManager.enableCamoMineCrafting) {
 			GameRegistry.addShapedRecipe(new ItemStack(DaWikBlocks.blockCamoMine), "ttt", "tst", "ttt", Character.valueOf('t'), Blocks.tnt, Character.valueOf('s'), Blocks.stone);
 		}
+
+		GameRegistry.addShapedRecipe(new ItemStack(DaWikBlocks.advWood), "ttt", "twt", "ttt", Character.valueOf('t'), Blocks.leaves, Character.valueOf('w'), Blocks.log);
+		GameRegistry.addShapedRecipe(new ItemStack(DaWikBlocks.advWood), "ttt", "twt", "ttt", Character.valueOf('t'), Blocks.leaves2, Character.valueOf('w'), Blocks.log);
+		GameRegistry.addShapedRecipe(new ItemStack(DaWikItems.woodSeed), "ttt", "twt", "ttt", Character.valueOf('t'), Items.wheat_seeds, Character.valueOf('w'), Blocks.sapling);
+
 		// Hander
 		GameRegistry.registerFuelHandler(new FuelManager());
 

@@ -10,3 +10,6 @@ tile.blockStoragex512.name=Storage Block x 512
 tile.blockStoragex2048.name=Storage Block x 2048
 tile.blockStoragex20480.name=Storage Block x 20480
 tile.blockStoragex1000000.name=Storage Block x 1000000
+item.itemWoodSeed.name=Wooden Seed
+tile.cropWood.name=Wood Crop
+tile.blockAdvancedWood.name=Advanced Wood
