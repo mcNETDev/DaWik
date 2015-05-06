@@ -35,7 +35,7 @@ public class ConfigManager {
 
 	public void load() {
 		System.out.println("Config Loading..");
-		ConfigManager.dimList = config.get("worlds", "Dimensions", new String[] { "MiningWorld;124;MINING", "Admin;123;NORMAL", "DEFAULT MiningWorld;124;MINING   Admin;123;NORMAL" }).getStringList();
+		ConfigManager.dimList = config.get("worlds", "Dimensions", new String[] { "MiningWorld;124;MINING", "Admin;123;NORMAL" }).getStringList();
 		ConfigManager.players = config.get("Permissions", "ExtraPermissions", new String[] { "mcNET", "you", "youFriend" }, "This Players are alowed for use /tpDim").getStringList();
 
 		ConfigManager.miningWorldBiomeID = config.get("world", "miningWorldBiomeID", 75, "The id from the Mining World Biome").getInt();
