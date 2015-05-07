@@ -11,6 +11,16 @@ public class TileEntityStoragex1 extends BaseTileEntity implements IInventory {
 	public static final String ID = "DaWik:storagex1";
 	public ItemStack[] inventory;
 
+	public int getStatusItems() {
+		int count = 0;
+		for (ItemStack item : inventory) {
+			if ((item != null) && (item.getItem() != null)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 	public TileEntityStoragex1(int size) {
 		inventory = new ItemStack[size];
 	}
