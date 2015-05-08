@@ -35,7 +35,9 @@ public class ConfigManager {
 
 	public void load() {
 		System.out.println("Config Loading..");
-		ConfigManager.dimList = config.get("worlds", "Dimensions", new String[] { "MiningWorld;124;MINING", "Admin;123;NORMAL" }).getStringList();
+		config.addCustomCategoryComment("worlds",
+				"Format: WORLDNAME;DIMID;WORLDTYPE;SKYCOLOR	WorldTypes are: MINING and NORMAL	SkyColors are DEFAULT,CYAN,YELLOW,BLUE,DARKGREEN,LIGHTGREEN,LIGHTBLUE,BLACK,LIGHTBROWN,PINK,RED,DARKRED,PURPLE and WHITE");
+		ConfigManager.dimList = config.get("worlds", "Dimensions", new String[] { "MiningWorld;124;MINING;DEFAULT", "Admin;123;NORMAL;BLUE" }).getStringList();
 		ConfigManager.players = config.get("Permissions", "ExtraPermissions", new String[] { "mcNET", "you", "youFriend" }, "This Players are alowed for use /tpDim").getStringList();
 
 		ConfigManager.miningWorldBiomeID = config.get("world", "miningWorldBiomeID", 75, "The id from the Mining World Biome").getInt();

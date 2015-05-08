@@ -8,6 +8,7 @@ import de.DaWik.DaWik.Config.ConfigManager;
 import de.DaWik.DaWik.World.DaWikMiningWorldProvider;
 import de.DaWik.DaWik.World.DaWikNormalWorldProvider;
 import de.DaWik.DaWik.World.Dimension;
+import de.DaWik.DaWik.enums.SkyColors;
 
 public class DaWikDimensionManager {
 	public static ArrayList<Dimension> dims = new ArrayList<Dimension>();
@@ -18,7 +19,13 @@ public class DaWikDimensionManager {
 			String name = prop[0];
 			int dimid = Integer.valueOf(prop[1]);
 			DimType type = DimType.valueOf(prop[2]);
-			DaWikDimensionManager.dims.add(new Dimension(name, dimid, type));
+			SkyColors col;
+			if (prop[3] != null) {
+				col = SkyColors.valueOf(prop[3]);
+			} else {
+				col = SkyColors.DEFAULT;
+			}
+			DaWikDimensionManager.dims.add(new Dimension(name, dimid, type, col));
 			switch (type) {
 			case MINING:
 				DimensionManager.registerProviderType(dimid, DaWikMiningWorldProvider.class, true);
@@ -53,4 +60,12 @@ public class DaWikDimensionManager {
 		return false;
 	}
 
+	public static Dimension getDim(int dimensionId) {
+		for (Dimension dim : DaWikDimensionManager.dims) {
+			if (dim.getId() == dimensionId) {
+				return dim;
+			}
+		}
+		return null;
+	}
 }
