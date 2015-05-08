@@ -10,4 +10,6 @@ public abstract class DaWikProxy {
 	public abstract void postInit();
 
 	public abstract EntityPlayer getClientPlayer();
+
+	public abstract void registerRenderers();
 }

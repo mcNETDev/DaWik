@@ -63,12 +63,15 @@ public class DaWik {
 		DaWik.proxy.init();
 		DaWikRegistry.load(event);
 		DaWikDimensionManager.init();
+		ModCompact.load();
 		Log.info("Pre init Complete");
 	}
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		DaWik.proxy.postInit();
+		DaWik.proxy.registerRenderers();
+		ModCompact.postInit();
 		DaWikRegistry.postInit(event);
 		Log.info("Post Init Complete");
 	}

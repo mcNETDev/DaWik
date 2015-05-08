@@ -24,4 +24,9 @@ public class DaWikServerProxy extends DaWikProxy {
 		return null;
 	}
 
+	@Override
+	public void registerRenderers() {
+
+	}
+
 }

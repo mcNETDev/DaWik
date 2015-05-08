@@ -36,7 +36,8 @@ public class DaWikClientProxy extends DaWikProxy {
 		return Minecraft.getMinecraft().thePlayer;
 	}
 
-	public void registerRender() {
+	@Override
+	public void registerRenderers() {
 
 	}
 }

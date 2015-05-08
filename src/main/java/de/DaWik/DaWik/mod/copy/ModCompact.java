@@ -1,4 +1,4 @@
-package de.DaWik.DaWik.mod;
+package de.DaWik.DaWik.mod.copy;
 
 import cpw.mods.fml.common.Loader;
 import de.DaWik.DaWik.Mods.mfr.MFR;
@@ -12,11 +12,9 @@ public class ModCompact {
 	}
 
 	public static void postInit() {
-
 	}
 
 	public static void load() {
-
 	}
 
 }
