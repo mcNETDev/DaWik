@@ -4,11 +4,10 @@ import de.DaWik.DaWik.DaWik;
 import de.DaWik.DaWik.init.DaWikBlocks;
 
 public class ItemWoodSeed extends BaseItemSeed {
-
 	public static final String UNLOCALNAME = "itemWoodSeed";
 
 	public ItemWoodSeed() {
-		super(DaWikBlocks.woodCrop, DaWikBlocks.advWood);
+		super(DaWikBlocks.woodCrop);
 		setUnlocalizedName(ItemWoodSeed.UNLOCALNAME);
 		setTextureName("DaWik:" + ItemWoodSeed.UNLOCALNAME);
 		setCreativeTab(DaWik.creativeTab);

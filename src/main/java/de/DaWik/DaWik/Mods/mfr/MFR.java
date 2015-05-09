@@ -11,6 +11,5 @@ public class MFR {
 		FactoryRegistry.sendMessage("registerPlantable", plantable);
 		Harvestable harvestable = new Harvestable(DaWikBlocks.woodCrop);
 		FactoryRegistry.sendMessage("registerHarvestable", harvestable);
-
 	}
 }

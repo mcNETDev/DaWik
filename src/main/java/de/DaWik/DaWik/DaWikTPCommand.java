@@ -55,8 +55,7 @@ public class DaWikTPCommand implements ICommand {
 
 	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender sender) {
-		// return DaWik.isExtraPlayer(sender.getCommandSenderName());
-		return true;
+		return Player.isExtraPlayer(sender.getCommandSenderName());
 	}
 
 	@Override

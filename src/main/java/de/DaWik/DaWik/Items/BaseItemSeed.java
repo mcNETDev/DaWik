@@ -15,11 +15,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class BaseItemSeed extends Item implements IPlantable {
 
 	private final Block theBlockPlant;
-	private final Block soilId;
 
-	public BaseItemSeed(Block parBlockPlant, Block parSoilBlock) {
+	public BaseItemSeed(Block parBlockPlant) {
 		theBlockPlant = parBlockPlant;
-		soilId = parSoilBlock;
 	}
 
 	@Override
@@ -52,10 +50,6 @@ public class BaseItemSeed extends Item implements IPlantable {
 	@Override
 	public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
 		return 0;
-	}
-
-	public Block getSoilId() {
-		return soilId;
 	}
 
 	public void onFallenUpon(World p_149746_1_, int p_149746_2_, int p_149746_3_, int p_149746_4_, Entity p_149746_5_, float p_149746_6_) {

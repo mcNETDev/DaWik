@@ -43,7 +43,7 @@ public class DaWikBlocks {
 		}
 		if (ConfigManager.enableWoodPlants) {
 			DaWikBlocks.woodCrop = new WoodCrop();
-			GameRegistry.registerBlock(DaWikBlocks.woodCrop, WoodCrop.UNLOCALNAME);
+			GameRegistry.registerBlock(DaWikBlocks.woodCrop, DaWikBlocks.woodCrop.UNLOCALNAME);
 		}
 		DaWikBlocks.advWood = new BlockAdvancedWood();
 		GameRegistry.registerBlock(DaWikBlocks.advWood, BlockAdvancedWood.UNLOCALNAME);

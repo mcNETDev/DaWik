@@ -14,7 +14,5 @@ public class DaWikItems {
 		GameRegistry.registerItem(DaWikItems.pickaxeBreaker, ItemPickaxeBreaker.UNLOCALNAME);
 		DaWikItems.woodSeed = new ItemWoodSeed();
 		GameRegistry.registerItem(DaWikItems.woodSeed, ItemWoodSeed.UNLOCALNAME);
-
 	}
-
 }
