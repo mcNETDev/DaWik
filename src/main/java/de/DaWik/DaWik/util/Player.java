@@ -9,6 +9,6 @@ public class Player {
 				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 }
