@@ -22,7 +22,7 @@ import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 import de.DaWik.DaWik.util.Log;
 
-@Mod(modid = "DaWik", name = "DaWik", version = "0.0.2", dependencies = "after:MineFactoryReloaded")
+@Mod(modid = "DaWik", name = "DaWik", version = "0.0.3", dependencies = "after:MineFactoryReloaded")
 public class DaWik {
 
 	@Instance(value = "DaWik")
