@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import de.DaWik.DaWik.Blocks.BlockAdvancedWood;
 import de.DaWik.DaWik.Blocks.BlockCamoMine;
 import de.DaWik.DaWik.Blocks.BlockStoragex;
+import de.DaWik.DaWik.Blocks.BlockSuperChest;
 import de.DaWik.DaWik.Blocks.BlockWorkSurface;
 import de.DaWik.DaWik.Blocks.crops.WoodCrop;
 import de.DaWik.DaWik.Config.ConfigManager;
@@ -20,6 +21,7 @@ public class DaWikBlocks {
 	public static WoodCrop woodCrop;
 	public static BlockAdvancedWood advWood;
 	public static BlockWorkSurface workSurface;
+	public static BlockSuperChest superChest;
 
 	public static void init() {
 		if (ConfigManager.enableCamoMine) {
@@ -51,5 +53,7 @@ public class DaWikBlocks {
 		GameRegistry.registerBlock(DaWikBlocks.advWood, BlockAdvancedWood.UNLOCALNAME);
 		DaWikBlocks.workSurface = new BlockWorkSurface();
 		GameRegistry.registerBlock(DaWikBlocks.workSurface, DaWikBlocks.workSurface.getUnlocalizedName());
+		DaWikBlocks.superChest = new BlockSuperChest();
+		GameRegistry.registerBlock(DaWikBlocks.superChest, DaWikBlocks.superChest.getUnlocalizedName());
 	}
 }

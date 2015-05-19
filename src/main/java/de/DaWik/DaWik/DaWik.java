@@ -10,6 +10,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.DaWik.DaWik.Config.ConfigManager;
@@ -18,6 +19,7 @@ import de.DaWik.DaWik.init.DaWikItems;
 import de.DaWik.DaWik.init.DaWikTileEntitys;
 import de.DaWik.DaWik.mod.ModCompact;
 import de.DaWik.DaWik.network.DescriptionHandler;
+import de.DaWik.DaWik.network.NETWORKManager;
 import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 import de.DaWik.DaWik.util.Log;
@@ -43,6 +45,10 @@ public class DaWik {
 		}
 	};
 
+	public static SimpleNetworkWrapper network;
+
+	public static String networkChannelName = "DaWikNC";
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		DaWik.proxy.preInit();
@@ -54,7 +60,7 @@ public class DaWik {
 		NetworkHandler.init();
 		DescriptionHandler.init();
 		ModCompact.init();
-
+		NETWORKManager.init();
 		Log.info("Pre Init Complete");
 	}
 
