@@ -24,7 +24,7 @@ import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 import de.DaWik.DaWik.util.Log;
 
-@Mod(modid = "DaWik", name = "DaWik", version = "0.0.3", dependencies = "after:MineFactoryReloaded")
+@Mod(modid = "DaWik", name = "DaWik", version = "0.1.0", dependencies = "required-after:CoFHCore@[1.7.10R3.0.0,);after:MineFactoryReloaded")
 public class DaWik {
 
 	@Instance(value = "DaWik")
@@ -67,6 +67,7 @@ public class DaWik {
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 		DaWik.proxy.init();
+		DaWikItems.load();
 		DaWikRegistry.load(event);
 		DaWikDimensionManager.init();
 		ModCompact.load();
