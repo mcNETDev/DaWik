@@ -1,7 +1,5 @@
 package de.DaWik.DaWik.Items;
 
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,15 +7,11 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
-
-import com.google.common.collect.Sets;
-
 import de.DaWik.DaWik.DaWik;
 
 public class ItemPickaxeBreaker extends ItemPickaxe {
 
 	public static final String UNLOCALNAME = "Breaker";
-	private static Set all = Sets.newHashSet();
 
 	public ItemPickaxeBreaker() {
 		super(EnumHelper.addToolMaterial("dawik", 100, 10000, 6000.0F, 1234.0F, 50));

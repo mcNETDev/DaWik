@@ -1,10 +1,7 @@
 package de.DaWik.DaWik;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
@@ -16,7 +13,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import de.DaWik.DaWik.Config.ConfigManager;
 import de.DaWik.DaWik.World.LakeEvent;
 import de.DaWik.DaWik.World.MiningBiome;
-import de.DaWik.DaWik.crafting.WorkSurfaceCraftingManager;
 import de.DaWik.DaWik.fuel.FuelManager;
 import de.DaWik.DaWik.gui.GuiHandler;
 import de.DaWik.DaWik.init.DaWikBlocks;
@@ -43,16 +39,6 @@ public class DaWikRegistry {
 		GameRegistry.addShapedRecipe(new ItemStack(DaWikBlocks.advWood), "ttt", "twt", "ttt", Character.valueOf('t'), Blocks.leaves2, Character.valueOf('w'), Blocks.log);
 		GameRegistry.addShapedRecipe(new ItemStack(DaWikItems.woodSeed), "ttt", "twt", "ttt", Character.valueOf('t'), Items.wheat_seeds, Character.valueOf('w'), Blocks.sapling);
 		GameRegistry.addShapedRecipe(new ItemStack(DaWikBlocks.workSurface), "ttt", "twt", "ttt", Character.valueOf('t'), Blocks.crafting_table, Character.valueOf('w'), Blocks.iron_block);
-
-		// Work Surface Crafting
-
-		ItemStack bookEf1 = new ItemStack(Items.enchanted_book);
-		ItemEnchantedBook book1 = Items.enchanted_book;
-		book1.addEnchantment(bookEf1, new EnchantmentData(Enchantment.efficiency, 1));
-		WorkSurfaceCraftingManager.get().addRecipe(bookEf1, "rrrrr", "rfffr", "rfdfr", "rfffr", "rrrrr", 'r', Items.redstone, 'f', Items.feather, 'd', Items.diamond);
-		WorkSurfaceCraftingManager.get().addRecipe(new ItemStack(DaWikItems.pickaxeBreaker), "essse", "seses", "ssdss", "seses", "essse", 'e', Blocks.iron_block, 's', Blocks.stone, 'd',
-				Items.diamond_pickaxe);
-
 		// Hander
 		GameRegistry.registerFuelHandler(new FuelManager());
 

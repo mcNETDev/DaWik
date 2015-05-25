@@ -67,7 +67,7 @@ public class ContainerWorkSurface extends Container {
 		super.onContainerClosed(player);
 
 		if (!worldObj.isRemote) {
-			for (int i = 0; i < 9; ++i) {
+			for (int i = 0; i < 25; ++i) {
 				ItemStack itemstack = craftMatrix.getStackInSlotOnClosing(i);
 
 				if (itemstack != null) {

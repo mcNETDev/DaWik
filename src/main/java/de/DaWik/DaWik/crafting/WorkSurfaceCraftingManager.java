@@ -6,13 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+import de.DaWik.DaWik.DaWik;
 
 public class WorkSurfaceCraftingManager {
 
@@ -26,13 +25,16 @@ public class WorkSurfaceCraftingManager {
 
 	private WorkSurfaceCraftingManager() {
 		recipes = new ArrayList();
-		addRecipe(new ItemStack(Items.apple), "S", "S", "S", "S", "S", 'S', Blocks.dirt);
-		addRecipe(new ItemStack(Items.diamond, 2), "cococ", "ococo", "codoc", "ococo", "cococ", 'c', Items.coal, 'o', Blocks.obsidian, 'd', Items.diamond);
+		// addRecipe(new ItemStack(Items.apple), "S", "S", "S", "S", "S", 'S',
+		// Blocks.dirt);
+		// addRecipe(new ItemStack(Items.diamond, 2), "cococ", "ococo", "codoc",
+		// "ococo", "cococ", 'c', Items.coal, 'o', Blocks.obsidian, 'd',
+		// Items.diamond);
 
 		Collections.sort(recipes, new WorkSurfaceRecipeSorter(this));
 	}
 
-	public WorkSurfaceShapedRecipes addRecipe(ItemStack p_92103_1_, Object... p_92103_2_) {
+	public WorkSurfaceShapedRecipes addRecipe(ItemStack p_92103_1_, Object[] p_92103_2_) {
 		String s = "";
 		int i = 0;
 		int j = 0;
@@ -41,8 +43,7 @@ public class WorkSurfaceCraftingManager {
 		if (p_92103_2_[i] instanceof String[]) {
 			String[] astring = ((String[]) p_92103_2_[i++]);
 
-			for (int l = 0; l < astring.length; ++l) {
-				String s1 = astring[l];
+			for (String s1 : astring) {
 				++k;
 				j = s1.length();
 				s = s + s1;
@@ -166,5 +167,10 @@ public class WorkSurfaceCraftingManager {
 	 */
 	public List getRecipeList() {
 		return recipes;
+	}
+
+	public void reset() {
+		recipes.clear();
+		DaWik.wb.load();
 	}
 }

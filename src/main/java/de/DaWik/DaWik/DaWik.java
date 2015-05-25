@@ -10,10 +10,10 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
-import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.DaWik.DaWik.Config.ConfigManager;
+import de.DaWik.DaWik.crafting.Workbench;
 import de.DaWik.DaWik.init.DaWikBlocks;
 import de.DaWik.DaWik.init.DaWikItems;
 import de.DaWik.DaWik.init.DaWikTileEntitys;
@@ -24,7 +24,7 @@ import de.DaWik.DaWik.network.NetworkHandler;
 import de.DaWik.DaWik.proxy.DaWikProxy;
 import de.DaWik.DaWik.util.Log;
 
-@Mod(modid = "DaWik", name = "DaWik", version = "0.1.0", dependencies = "required-after:CoFHCore@[1.7.10R3.0.0,);after:MineFactoryReloaded")
+@Mod(modid = "DaWik", name = "DaWik", version = "0.1.0", dependencies = "required-after:CoFHCore@[1.7.10R3.0.0,);after:MineFactoryReloaded;required-after:MCoreF")
 public class DaWik {
 
 	@Instance(value = "DaWik")
@@ -35,6 +35,8 @@ public class DaWik {
 
 	// ConfigManager
 	private ConfigManager config;
+
+	public static Workbench wb;
 	// Tab
 	public static CreativeTabs creativeTab = new CreativeTabs("testTab") {
 
@@ -44,10 +46,7 @@ public class DaWik {
 			return DaWikItems.pickaxeBreaker;
 		}
 	};
-
-	public static SimpleNetworkWrapper network;
-
-	public static String networkChannelName = "DaWikNC";
+	public static NETWORKManager networkManager;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -60,7 +59,8 @@ public class DaWik {
 		NetworkHandler.init();
 		DescriptionHandler.init();
 		ModCompact.init();
-		NETWORKManager.init();
+		DaWik.networkManager = new NETWORKManager();
+		DaWik.networkManager.getCommunication();
 		Log.info("Pre Init Complete");
 	}
 
@@ -71,7 +71,7 @@ public class DaWik {
 		DaWikRegistry.load(event);
 		DaWikDimensionManager.init();
 		ModCompact.load();
-		Log.info("Pre init Complete");
+		Log.info("init Complete");
 	}
 
 	@EventHandler
@@ -80,12 +80,15 @@ public class DaWik {
 		DaWik.proxy.registerRenderers();
 		ModCompact.postInit();
 		DaWikRegistry.postInit(event);
+		DaWik.wb = new Workbench();
+		DaWik.wb.load();
 		Log.info("Post Init Complete");
 	}
 
 	@EventHandler
 	public void serverLoad(FMLServerStartingEvent event) {
 		event.registerServerCommand(new DaWikTPCommand());
+		event.registerServerCommand(new DaWikCommand());
 	}
 
 }

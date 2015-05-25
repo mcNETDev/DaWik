@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -25,7 +26,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import de.DaWik.DaWik.DaWik;
 import de.DaWik.DaWik.TileEntity.TileSuperChest;
 import de.DaWik.DaWik.container.ContainerSuperChest;
-import de.DaWik.DaWik.network.ButtonPacket;
+import de.DaWik.DaWik.network.NETWORKManager;
 import de.DaWik.DaWik.util.GuiButtonAHeight;
 import de.DaWik.DaWik.util.GuiHelper;
 import de.DaWik.DaWik.util.References;
@@ -144,19 +145,54 @@ public class GUISuperChest extends GuiContainer implements INEIGuiHandler {
 
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		System.out.println("NETWORK :" + DaWik.network);
-		System.out.println("ButtonPacket.ID_DRACONIUMCHEST0" + ButtonPacket.ID_DRACONIUMCHEST0);
-		if (button.id == 0) {
-			DaWik.network.sendToServer(new ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST0, false));
-		} else if (button.id == 1) {
-			DaWik.network.sendToServer(new ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST1, false));
-		} else if (button.id == 2) {
-			DaWik.network.sendToServer(new ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST2, false));
-		} else if (button.id == 3) {
-			DaWik.network.sendToServer(new ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST3, false));
-		} else if (button.id == 4) {
-			DaWik.network.sendToServer(new ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST4, false));
+		NBTTagCompound tag = new NBTTagCompound();
+		tag.setInteger("type", DaWik.networkManager.TYPE_ID_SUPERCHEST);
+		tag.setString("player", player.getCommandSenderName());
+		tag.setInteger("x", tile.xCoord);
+		tag.setInteger("y", tile.yCoord);
+		tag.setInteger("z", tile.zCoord);
+
+		switch (button.id) {
+		case 0:
+			tag.setInteger("buttonID", NETWORKManager.ID_DRACONIUMCHEST0);
+			DaWik.networkManager.getCommunication().sendToServer(tag);
+			break;
+		case 1:
+			tag.setInteger("buttonID", NETWORKManager.ID_DRACONIUMCHEST1);
+			DaWik.networkManager.getCommunication().sendToServer(tag);
+			break;
+		case 2:
+			tag.setInteger("buttonID", NETWORKManager.ID_DRACONIUMCHEST2);
+			DaWik.networkManager.getCommunication().sendToServer(tag);
+			break;
+		case 3:
+			tag.setInteger("buttonID", NETWORKManager.ID_DRACONIUMCHEST3);
+			DaWik.networkManager.getCommunication().sendToServer(tag);
+			break;
+		case 4:
+			tag.setInteger("buttonID", NETWORKManager.ID_DRACONIUMCHEST4);
+			DaWik.networkManager.getCommunication().sendToServer(tag);
+			break;
+		default:
+			break;
 		}
+
+		// if (button.id == 0) {
+		// DaWik.networkManager.sendToServer(new
+		// ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST0, false));
+		// } else if (button.id == 1) {
+		// DaWik.network.sendToServer(new
+		// ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST1, false));
+		// } else if (button.id == 2) {
+		// DaWik.network.sendToServer(new
+		// ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST2, false));
+		// } else if (button.id == 3) {
+		// DaWik.network.sendToServer(new
+		// ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST3, false));
+		// } else if (button.id == 4) {
+		// DaWik.network.sendToServer(new
+		// ButtonPacket(ButtonPacket.ID_DRACONIUMCHEST4, false));
+		// }
 	}
 
 	@Override

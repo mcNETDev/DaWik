@@ -56,6 +56,7 @@ public class TileEntityCamoMine extends BaseTileEntity {
 		} else {
 			camoStack = null;
 		}
+		worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
 	}
 
 	public ItemStack getCamoflage() {
@@ -66,7 +67,6 @@ public class TileEntityCamoMine extends BaseTileEntity {
 		this.camoStack = camoStack;
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		worldObj.markBlockRangeForRenderUpdate(xCoord, yCoord, zCoord, xCoord, yCoord, zCoord);
-		System.out.println("send camo");
 	}
 
 }
