@@ -1,0 +1,22 @@
+######  Config for Workbench of the DaWik Mod
+
+#blocks or items
+#item=#ModId#:#NAMEOFTHEITEM#=#Placeholder#
+#example: item=minecraft:IRON_PICKAXE=p
+item=minecraft:diamond_pickaxe=d
+item=DaWik:Breaker=b
+item=DaWik:itemWoodSeed=c
+item=minecraft:bone=b
+item=MineFactoryReloaded:fertilizer=f
+#block=#ModId#:#NAMEOFTHEBLOCK#=#Placeholder#
+#example: block=minecraft:BRICK=b
+block=minecraft:stone=s
+block=minecraft:iron_block=i
+
+#shapes
+#Air = a (Placeholder)
+#shape=[5 Holders] * 5;output placeholder
+#example shape=aapaa;bbppa;bbbbb;aaaaa;abpba;p
+shape=isssi;sisis;ssdss;sisis;isssi;b
+shape=sssss;sssss;sssss;sssss;sssss;f
+shape=bbbbb;bbbbb;bbbbb;bbbbb;bbbbb;f
